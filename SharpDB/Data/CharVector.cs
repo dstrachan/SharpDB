@@ -2,11 +2,11 @@
 
 namespace SharpDB.Data;
 
-public class ByteVector : BaseVector<byte>
+public class CharVector : BaseVector<char>
 {
-    public override DataType Type => DataType.ByteVector;
+    public override DataType Type => DataType.CharVector;
 
-    public ByteVector(byte[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public CharVector(char[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
     {
     }
 
@@ -16,7 +16,10 @@ public class ByteVector : BaseVector<byte>
         result[0] = (byte)Type;
         result[1] = (byte)Attribute;
         Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        Buffer.BlockCopy(Value, 0, result, 6, Value.Length);
+        for (var i = 0; i < Value.Length; i++)
+        {
+            result[6 + i] = (byte)Value[i];
+        }
         return result;
     }
 
@@ -24,15 +27,16 @@ public class ByteVector : BaseVector<byte>
     {
         if (Value.Length == 0)
         {
-            return "`byte$()";
+            return "\"\"";
         }
 
-        var stringBuilder = new StringBuilder(Value.Length == 1 ? ",0x" : "0x");
+        var stringBuilder = new StringBuilder(Value.Length == 1 ? ",\"" : "\"");
         foreach (var element in Value)
         {
-            stringBuilder.Append($"{element:x2}");
+            stringBuilder.Append(element);
         }
 
+        stringBuilder.Append('"');
         return stringBuilder.ToString();
     }
 }

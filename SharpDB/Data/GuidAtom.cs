@@ -1,19 +1,16 @@
 ﻿namespace SharpDB.Data;
 
-public class GuidAtom : IAtom<Guid>
+public class GuidAtom : BaseAtom<Guid>
 {
     public static readonly Guid Null = Guid.Empty;
-    
-    public DataType Type => DataType.GuidAtom;
 
-    public Guid Value { get; }
+    public override DataType Type => DataType.GuidAtom;
 
-    public GuidAtom(Guid value)
+    public GuidAtom(Guid value) : base(value)
     {
-        Value = value;
     }
 
-    public byte[] Serialize()
+    public override byte[] Serialize()
     {
         var result = new byte[17];
         result[0] = (byte)Type;

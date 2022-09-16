@@ -2,19 +2,15 @@
 
 namespace SharpDB.Data;
 
-public class BooleanVector : IVector<bool>
+public class BooleanVector : BaseVector<bool>
 {
-    public DataType Type => DataType.BooleanVector;
+    public override DataType Type => DataType.BooleanVector;
 
-    public bool[] Value { get; }
-    public VectorAttribute Attribute { get; }
-
-    public BooleanVector(bool[] value, VectorAttribute attribute = VectorAttribute.None)
+    public BooleanVector(bool[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
     {
-        Value = value;
     }
-
-    public byte[] Serialize()
+    
+    public override byte[] Serialize()
     {
         var result = new byte[6 + Value.Length];
         result[0] = (byte)Type;

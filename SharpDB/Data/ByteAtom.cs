@@ -1,17 +1,14 @@
 ﻿namespace SharpDB.Data;
 
-public class ByteAtom : IAtom<byte>
+public class ByteAtom : BaseAtom<byte>
 {
-    public DataType Type => DataType.ByteAtom;
+    public override DataType Type => DataType.ByteAtom;
 
-    public byte Value { get; }
-
-    public ByteAtom(byte value)
+    public ByteAtom(byte value) : base(value)
     {
-        Value = value;
     }
 
-    public byte[] Serialize()
+    public override byte[] Serialize()
     {
         var result = new byte[2];
         result[0] = (byte)Type;

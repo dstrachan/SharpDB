@@ -1,17 +1,14 @@
 ﻿namespace SharpDB.Data;
 
-public class BooleanAtom : IAtom<bool>
+public class BooleanAtom : BaseAtom<bool>
 {
-    public DataType Type => DataType.BooleanAtom;
+    public override DataType Type => DataType.BooleanAtom;
 
-    public bool Value { get; }
-
-    public BooleanAtom(bool value)
+    public BooleanAtom(bool value) : base(value)
     {
-        Value = value;
     }
-
-    public byte[] Serialize()
+    
+    public override byte[] Serialize()
     {
         var result = new byte[2];
         result[0] = (byte)Type;

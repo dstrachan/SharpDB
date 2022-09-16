@@ -2,21 +2,15 @@
 
 namespace SharpDB.Data;
 
-public class GuidVector : IVector<Guid>
+public class GuidVector : BaseVector<Guid>
 {
-    public DataType Type => DataType.GuidVector;
+    public override DataType Type => DataType.GuidVector;
 
-    public Guid[] Value { get; }
-
-    public VectorAttribute Attribute { get; }
-
-    public GuidVector(Guid[] value, VectorAttribute attribute = VectorAttribute.None)
+    public GuidVector(Guid[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
     {
-        Value = value;
-        Attribute = attribute;
     }
 
-    public byte[] Serialize()
+    public override byte[] Serialize()
     {
         var result = new byte[6 + Value.Length * 16];
         result[0] = (byte)Type;

@@ -1,10 +1,11 @@
 ﻿using SharpDB.Data;
+using static SharpDB.Data.GuidAtom;
 
 namespace SharpDB.Tests.Data;
 
 public class GuidAtomTests
 {
-    private readonly GuidAtom _null = new(GuidAtom.Null);
+    private readonly GuidAtom _null = new(Null);
     private readonly GuidAtom _value = new(new Guid("6ba71174-9998-4c6d-9785-c75226eb557f"));
 
     [Test]

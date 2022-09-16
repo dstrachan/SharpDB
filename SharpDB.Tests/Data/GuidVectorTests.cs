@@ -1,12 +1,13 @@
 ﻿using SharpDB.Data;
+using static SharpDB.Data.GuidAtom;
 
 namespace SharpDB.Tests.Data;
 
 public class GuidVectorTests
 {
     private readonly GuidVector _empty = new(Array.Empty<Guid>());
-    private readonly GuidVector _single = new(new[] { Guid.Empty });
-    private readonly GuidVector _many = new(new[] { Guid.Empty, Guid.Empty });
+    private readonly GuidVector _single = new(new[] { Null });
+    private readonly GuidVector _many = new(new[] { Null, Null });
 
     [Test]
     public void TypeIsGuidVector()
