@@ -7,7 +7,7 @@ public class BooleanAtom : BaseAtom<bool>
     public BooleanAtom(bool value) : base(value)
     {
     }
-    
+
     public override byte[] Serialize()
     {
         var result = new byte[2];

@@ -9,7 +9,7 @@ public class BooleanVector : BaseVector<bool>
     public BooleanVector(bool[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
     {
     }
-    
+
     public override byte[] Serialize()
     {
         var result = new byte[6 + Value.Length];

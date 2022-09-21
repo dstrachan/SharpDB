@@ -3,7 +3,7 @@ using static SharpDB.Data.ShortAtom;
 
 namespace SharpDB.Data;
 
-public class ShortVector : BaseVector<short>
+public class ShortVector : BaseVector<short>, IShortVectorOperators
 {
     public override DataType Type => DataType.ShortVector;
 
@@ -38,5 +38,485 @@ public class ShortVector : BaseVector<short>
         }));
         stringBuilder.Append('h');
         return stringBuilder.ToString();
+    }
+
+    public static IntVector operator +(ShortVector left, ByteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator +(ShortVector left, ByteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator +(ShortVector left, ShortAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator +(ShortVector left, ShortVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator +(ShortVector left, IntAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator +(ShortVector left, IntVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator +(ShortVector left, LongAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator +(ShortVector left, LongVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator +(ShortVector left, FloatAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator +(ShortVector left, FloatVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator +(ShortVector left, DoubleAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator +(ShortVector left, DoubleVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator +(ShortVector left, TimestampAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator +(ShortVector left, TimestampVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator +(ShortVector left, MonthAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator +(ShortVector left, MonthVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator +(ShortVector left, DateAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator +(ShortVector left, DateVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator +(ShortVector left, TimespanAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator +(ShortVector left, TimespanVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator +(ShortVector left, MinuteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator +(ShortVector left, MinuteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator +(ShortVector left, SecondAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator +(ShortVector left, SecondVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, ByteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, ByteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, ShortAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, ShortVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, IntAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator -(ShortVector left, IntVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator -(ShortVector left, LongAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator -(ShortVector left, LongVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator -(ShortVector left, FloatAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator -(ShortVector left, FloatVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator -(ShortVector left, DoubleAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator -(ShortVector left, DoubleVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator -(ShortVector left, TimestampAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator -(ShortVector left, TimestampVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator -(ShortVector left, MonthAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator -(ShortVector left, MonthVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator -(ShortVector left, DateAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator -(ShortVector left, DateVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator -(ShortVector left, TimespanAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator -(ShortVector left, TimespanVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator -(ShortVector left, MinuteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator -(ShortVector left, MinuteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator -(ShortVector left, SecondAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator -(ShortVector left, SecondVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, ByteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, ByteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, ShortAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, ShortVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, IntAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static IntVector operator *(ShortVector left, IntVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator *(ShortVector left, LongAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static LongVector operator *(ShortVector left, LongVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator *(ShortVector left, FloatAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static FloatVector operator *(ShortVector left, FloatVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator *(ShortVector left, DoubleAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator *(ShortVector left, DoubleVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator *(ShortVector left, TimestampAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimestampVector operator *(ShortVector left, TimestampVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator *(ShortVector left, MonthAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MonthVector operator *(ShortVector left, MonthVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator *(ShortVector left, DateAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DateVector operator *(ShortVector left, DateVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator *(ShortVector left, TimespanAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static TimespanVector operator *(ShortVector left, TimespanVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator *(ShortVector left, MinuteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static MinuteVector operator *(ShortVector left, MinuteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator *(ShortVector left, SecondAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static SecondVector operator *(ShortVector left, SecondVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, ByteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, ByteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, ShortAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, ShortVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, IntAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, IntVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, LongAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, LongVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, FloatAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, FloatVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, DoubleAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, DoubleVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, TimestampAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, TimestampVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, MonthAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, MonthVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, DateAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, DateVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, TimespanAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, TimespanVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, MinuteAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, MinuteVector right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, SecondAtom right)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static DoubleVector operator /(ShortVector left, SecondVector right)
+    {
+        throw new NotImplementedException();
     }
 }
