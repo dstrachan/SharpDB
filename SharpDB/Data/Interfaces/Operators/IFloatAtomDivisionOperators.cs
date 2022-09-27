@@ -10,8 +10,7 @@ public interface IFloatAtomDivisionOperators : IDivisionOperators<FloatAtom, Byt
     IDivisionOperators<FloatAtom, FloatVector, DoubleVector>, IDivisionOperators<FloatAtom, DoubleAtom, DoubleAtom>,
     IDivisionOperators<FloatAtom, DoubleVector, DoubleVector>, IDivisionOperators<FloatAtom, TimestampAtom, DoubleAtom>,
     IDivisionOperators<FloatAtom, TimestampVector, DoubleVector>, IDivisionOperators<FloatAtom, MonthAtom, DoubleAtom>,
-    IDivisionOperators<FloatAtom, MonthVector, DoubleVector>, IDivisionOperators<FloatAtom, DateAtom, DoubleAtom>,
-    IDivisionOperators<FloatAtom, DateVector, DoubleVector>, IDivisionOperators<FloatAtom, TimespanAtom, DoubleAtom>,
+    IDivisionOperators<FloatAtom, MonthVector, DoubleVector>, IDivisionOperators<FloatAtom, TimespanAtom, DoubleAtom>,
     IDivisionOperators<FloatAtom, TimespanVector, DoubleVector>, IDivisionOperators<FloatAtom, MinuteAtom, DoubleAtom>,
     IDivisionOperators<FloatAtom, MinuteVector, DoubleVector>, IDivisionOperators<FloatAtom, SecondAtom, DoubleAtom>,
     IDivisionOperators<FloatAtom, SecondVector, DoubleVector>

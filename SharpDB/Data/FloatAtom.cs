@@ -108,16 +108,6 @@ public class FloatAtom : BaseAtom<float>, IFloatAtomOperators
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator +(FloatAtom left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator +(FloatAtom left, DateVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static TimespanAtom operator +(FloatAtom left, TimespanAtom right)
     {
         throw new NotImplementedException();
@@ -224,16 +214,6 @@ public class FloatAtom : BaseAtom<float>, IFloatAtomOperators
     }
 
     public static MonthVector operator -(FloatAtom left, MonthVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateAtom operator -(FloatAtom left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator -(FloatAtom left, DateVector right)
     {
         throw new NotImplementedException();
     }
@@ -348,16 +328,6 @@ public class FloatAtom : BaseAtom<float>, IFloatAtomOperators
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator *(FloatAtom left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator *(FloatAtom left, DateVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static TimespanAtom operator *(FloatAtom left, TimespanAtom right)
     {
         throw new NotImplementedException();
@@ -464,16 +434,6 @@ public class FloatAtom : BaseAtom<float>, IFloatAtomOperators
     }
 
     public static DoubleVector operator /(FloatAtom left, MonthVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleAtom operator /(FloatAtom left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(FloatAtom left, DateVector right)
     {
         throw new NotImplementedException();
     }

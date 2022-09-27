@@ -12,7 +12,6 @@ public interface IFloatAtomSubtractionOperators : ISubtractionOperators<FloatAto
     ISubtractionOperators<FloatAtom, TimestampAtom, TimestampAtom>,
     ISubtractionOperators<FloatAtom, TimestampVector, TimestampVector>,
     ISubtractionOperators<FloatAtom, MonthAtom, MonthAtom>, ISubtractionOperators<FloatAtom, MonthVector, MonthVector>,
-    ISubtractionOperators<FloatAtom, DateAtom, DateAtom>, ISubtractionOperators<FloatAtom, DateVector, DateVector>,
     ISubtractionOperators<FloatAtom, TimespanAtom, TimespanAtom>,
     ISubtractionOperators<FloatAtom, TimespanVector, TimespanVector>,
     ISubtractionOperators<FloatAtom, MinuteAtom, MinuteAtom>, ISubtractionOperators<FloatAtom, MinuteVector, MinuteVector>,

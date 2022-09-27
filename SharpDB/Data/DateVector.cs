@@ -10,6 +10,9 @@ public class DateVector : IntVector, IDateVectorOperators
 
     public DateVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
     {
+        var a = (char)0;
+        var b = (byte)1;
+        var c = a + b;
     }
 
     public override string ToString()
@@ -80,16 +83,6 @@ public class DateVector : IntVector, IDateVectorOperators
     }
 
     public static DateVector operator +(DateVector left, LongVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator +(DateVector left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator +(DateVector left, FloatVector right)
     {
         throw new NotImplementedException();
     }
@@ -174,16 +167,6 @@ public class DateVector : IntVector, IDateVectorOperators
         throw new NotImplementedException();
     }
 
-    public static DateVector operator -(DateVector left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator -(DateVector left, FloatVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static IntVector operator -(DateVector left, DateAtom right)
     {
         throw new NotImplementedException();
@@ -264,16 +247,6 @@ public class DateVector : IntVector, IDateVectorOperators
         throw new NotImplementedException();
     }
 
-    public static DateVector operator *(DateVector left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator *(DateVector left, FloatVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static DoubleVector operator /(DateVector left, ByteAtom right)
     {
         throw new NotImplementedException();
@@ -310,16 +283,6 @@ public class DateVector : IntVector, IDateVectorOperators
     }
 
     public static DoubleVector operator /(DateVector left, LongVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(DateVector left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(DateVector left, FloatVector right)
     {
         throw new NotImplementedException();
     }

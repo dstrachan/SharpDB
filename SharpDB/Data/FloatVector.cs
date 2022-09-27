@@ -120,16 +120,6 @@ public class FloatVector : BaseVector<float>, IFloatVectorOperators
         throw new NotImplementedException();
     }
 
-    public static DateVector operator +(FloatVector left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator +(FloatVector left, DateVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static TimespanVector operator +(FloatVector left, TimespanAtom right)
     {
         throw new NotImplementedException();
@@ -236,16 +226,6 @@ public class FloatVector : BaseVector<float>, IFloatVectorOperators
     }
 
     public static MonthVector operator -(FloatVector left, MonthVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator -(FloatVector left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator -(FloatVector left, DateVector right)
     {
         throw new NotImplementedException();
     }
@@ -360,16 +340,6 @@ public class FloatVector : BaseVector<float>, IFloatVectorOperators
         throw new NotImplementedException();
     }
 
-    public static DateVector operator *(FloatVector left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator *(FloatVector left, DateVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static TimespanVector operator *(FloatVector left, TimespanAtom right)
     {
         throw new NotImplementedException();
@@ -476,16 +446,6 @@ public class FloatVector : BaseVector<float>, IFloatVectorOperators
     }
 
     public static DoubleVector operator /(FloatVector left, MonthVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(FloatVector left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(FloatVector left, DateVector right)
     {
         throw new NotImplementedException();
     }

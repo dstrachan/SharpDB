@@ -6,7 +6,6 @@ public interface IDateAtomMultiplyOperators : IMultiplyOperators<DateAtom, ByteA
     IMultiplyOperators<DateAtom, ByteVector, DateVector>, IMultiplyOperators<DateAtom, ShortAtom, DateAtom>,
     IMultiplyOperators<DateAtom, ShortVector, DateVector>, IMultiplyOperators<DateAtom, IntAtom, DateAtom>,
     IMultiplyOperators<DateAtom, IntVector, DateVector>, IMultiplyOperators<DateAtom, LongAtom, DateAtom>,
-    IMultiplyOperators<DateAtom, LongVector, DateVector>, IMultiplyOperators<DateAtom, FloatAtom, DateAtom>,
-    IMultiplyOperators<DateAtom, FloatVector, DateVector>
+    IMultiplyOperators<DateAtom, LongVector, DateVector>
 {
 }

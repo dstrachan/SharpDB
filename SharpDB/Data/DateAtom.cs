@@ -18,90 +18,56 @@ public class DateAtom : IntAtom, IDateAtomOperators
         _ => Value.ToDateString(),
     };
 
-    public static DateAtom operator +(DateAtom left, ByteAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static DateAtom operator +(DateAtom left, ByteAtom right) => new(left.Value + right.Value);
 
     public static DateVector operator +(DateAtom left, ByteVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator +(DateAtom left, ShortAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static DateAtom operator +(DateAtom left, ShortAtom right) => new(left.Value + right.Value);
 
     public static DateVector operator +(DateAtom left, ShortVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator +(DateAtom left, IntAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static DateAtom operator +(DateAtom left, IntAtom right) => new(left.Value + right.Value);
 
     public static DateVector operator +(DateAtom left, IntVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator +(DateAtom left, LongAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static DateAtom operator +(DateAtom left, LongAtom right) => new((int)(left.Value + right.Value));
 
     public static DateVector operator +(DateAtom left, LongVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator +(DateAtom left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator +(DateAtom left, FloatVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static IntAtom operator +(DateAtom left, DateAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static IntAtom operator +(DateAtom left, DateAtom right) => new(left.Value + right.Value);
 
     public static IntVector operator +(DateAtom left, DateVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static TimestampAtom operator +(DateAtom left, TimespanAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static TimestampAtom operator +(DateAtom left, TimespanAtom right) => new(left.Value + right.Value);
 
     public static TimestampVector operator +(DateAtom left, TimespanVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static TimestampAtom operator +(DateAtom left, MinuteAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static TimestampAtom operator +(DateAtom left, MinuteAtom right) => new(left.Value + right.Value);
 
     public static TimestampVector operator +(DateAtom left, MinuteVector right)
     {
         throw new NotImplementedException();
     }
 
-    public static TimestampAtom operator +(DateAtom left, SecondAtom right)
-    {
-        throw new NotImplementedException();
-    }
+    public static TimestampAtom operator +(DateAtom left, SecondAtom right) => new(left.Value + right.Value);
 
     public static TimestampVector operator +(DateAtom left, SecondVector right)
     {
@@ -144,16 +110,6 @@ public class DateAtom : IntAtom, IDateAtomOperators
     }
 
     public static DateVector operator -(DateAtom left, LongVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateAtom operator -(DateAtom left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator -(DateAtom left, FloatVector right)
     {
         throw new NotImplementedException();
     }
@@ -238,16 +194,6 @@ public class DateAtom : IntAtom, IDateAtomOperators
         throw new NotImplementedException();
     }
 
-    public static DateAtom operator *(DateAtom left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DateVector operator *(DateAtom left, FloatVector right)
-    {
-        throw new NotImplementedException();
-    }
-
     public static DoubleAtom operator /(DateAtom left, ByteAtom right)
     {
         throw new NotImplementedException();
@@ -284,16 +230,6 @@ public class DateAtom : IntAtom, IDateAtomOperators
     }
 
     public static DoubleVector operator /(DateAtom left, LongVector right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleAtom operator /(DateAtom left, FloatAtom right)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static DoubleVector operator /(DateAtom left, FloatVector right)
     {
         throw new NotImplementedException();
     }

@@ -12,7 +12,6 @@ public interface IFloatAtomMultiplyOperators : IMultiplyOperators<FloatAtom, Byt
     IMultiplyOperators<FloatAtom, TimestampAtom, TimestampAtom>,
     IMultiplyOperators<FloatAtom, TimestampVector, TimestampVector>,
     IMultiplyOperators<FloatAtom, MonthAtom, MonthAtom>, IMultiplyOperators<FloatAtom, MonthVector, MonthVector>,
-    IMultiplyOperators<FloatAtom, DateAtom, DateAtom>, IMultiplyOperators<FloatAtom, DateVector, DateVector>,
     IMultiplyOperators<FloatAtom, TimespanAtom, TimespanAtom>,
     IMultiplyOperators<FloatAtom, TimespanVector, TimespanVector>,
     IMultiplyOperators<FloatAtom, MinuteAtom, MinuteAtom>, IMultiplyOperators<FloatAtom, MinuteVector, MinuteVector>,

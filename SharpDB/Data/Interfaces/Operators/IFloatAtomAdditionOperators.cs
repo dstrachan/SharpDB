@@ -12,7 +12,6 @@ public interface IFloatAtomAdditionOperators : IAdditionOperators<FloatAtom, Byt
     IAdditionOperators<FloatAtom, TimestampAtom, TimestampAtom>,
     IAdditionOperators<FloatAtom, TimestampVector, TimestampVector>,
     IAdditionOperators<FloatAtom, MonthAtom, MonthAtom>, IAdditionOperators<FloatAtom, MonthVector, MonthVector>,
-    IAdditionOperators<FloatAtom, DateAtom, DateAtom>, IAdditionOperators<FloatAtom, DateVector, DateVector>,
     IAdditionOperators<FloatAtom, TimespanAtom, TimespanAtom>,
     IAdditionOperators<FloatAtom, TimespanVector, TimespanVector>,
     IAdditionOperators<FloatAtom, MinuteAtom, MinuteAtom>, IAdditionOperators<FloatAtom, MinuteVector, MinuteVector>,
