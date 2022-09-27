@@ -1,24 +1,33 @@
-﻿using System.Text;
-using static SharpDB.Data.FloatAtom;
+﻿using System.Buffers.Binary;
+using System.Text;
 
 namespace SharpDB.Data;
 
-public class FloatVector : BaseVector<float>
+public class FloatVector : VectorBase<FloatVector, float>
 {
+    public const float Null = float.NaN;
+    public const float NegativeInfinity = float.NegativeInfinity;
+    public const float PositiveInfinity = float.PositiveInfinity;
+
     public override DataType Type => DataType.FloatVector;
 
-    public FloatVector(float[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public FloatVector(float[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new FloatVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length * 4];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        Buffer.BlockCopy(Value, 0, result, 6, Value.Length * 4);
-        return result;
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+
+        Span<byte> buffer = stackalloc byte[sizeof(float)];
+        foreach (var value in Value)
+        {
+            BinaryPrimitives.WriteSingleLittleEndian(buffer, value);
+            stream.Write(buffer);
+        }
     }
 
     public override string ToString()

@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using SharpDB.Data.Extensions;
-using static SharpDB.Data.BaseIntAtom;
 
 namespace SharpDB.Data;
 
-public class DateVector : BaseIntVector
+public class DateVector : IntVectorBase<DateVector>
 {
     public override DataType Type => DataType.DateVector;
 
-    public DateVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public DateVector(int[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new DateVector(x, y))
     {
     }
 

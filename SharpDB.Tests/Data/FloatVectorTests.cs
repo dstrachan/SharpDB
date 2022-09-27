@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.FloatAtom;
+using static SharpDB.Data.FloatVector;
 
 namespace SharpDB.Tests.Data;
 
@@ -55,5 +55,11 @@ public class FloatVectorTests
         Assert.That(_empty.ToString(), Is.EqualTo("`float$()"));
         Assert.That(_single.ToString(), Is.EqualTo(",0e"));
         Assert.That(_many.ToString(), Is.EqualTo("0 0N -0W 0We"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
     }
 }

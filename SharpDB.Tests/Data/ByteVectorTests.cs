@@ -52,4 +52,10 @@ public class ByteVectorTests
         Assert.That(_single.ToString(), Is.EqualTo(",0x00"));
         Assert.That(_many.ToString(), Is.EqualTo("0x00ffff00"));
     }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
+    }
 }

@@ -55,4 +55,10 @@ public class SymbolVectorTests
         Assert.That(_single.ToString(), Is.EqualTo(",`abc"));
         Assert.That(_many.ToString(), Is.EqualTo("`a`ab`abc`abcd"));
     }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
+    }
 }

@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using SharpDB.Data.Extensions;
-using static SharpDB.Data.BaseLongAtom;
 
 namespace SharpDB.Data;
 
-public class TimespanVector : BaseLongVector
+public class TimespanVector : LongVectorBase<TimespanVector>
 {
     public override DataType Type => DataType.TimespanVector;
 
-    public TimespanVector(long[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public TimespanVector(long[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new TimespanVector(x, y))
     {
     }
 

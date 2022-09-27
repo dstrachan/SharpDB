@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using SharpDB.Data.Extensions;
-using static SharpDB.Data.BaseIntAtom;
 
 namespace SharpDB.Data;
 
-public class SecondVector : BaseIntVector
+public class SecondVector : IntVectorBase<SecondVector>
 {
     public override DataType Type => DataType.SecondVector;
 
-    public SecondVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public SecondVector(int[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new SecondVector(x, y))
     {
     }
 

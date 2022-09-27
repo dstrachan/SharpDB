@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.GuidAtom;
+using static SharpDB.Data.GuidVector;
 
 namespace SharpDB.Tests.Data;
 
@@ -53,5 +53,11 @@ public class GuidVectorTests
         Assert.That(_empty.ToString(), Is.EqualTo("`guid$()"));
         Assert.That(_single.ToString(), Is.EqualTo(",00000000-0000-0000-0000-000000000000"));
         Assert.That(_many.ToString(), Is.EqualTo("00000000-0000-0000-0000-000000000000 00000000-0000-0000-0000-000000000000"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
     }
 }

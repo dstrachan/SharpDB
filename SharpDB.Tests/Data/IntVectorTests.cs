@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.BaseIntAtom;
+using static SharpDB.Data.IntVectorBase<SharpDB.Data.IntVector>;
 
 namespace SharpDB.Tests.Data;
 

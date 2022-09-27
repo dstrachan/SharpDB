@@ -2,25 +2,25 @@
 
 namespace SharpDB.Data;
 
-public class CharVector : BaseVector<char>
+public class CharVector : VectorBase<CharVector, char>
 {
     public override DataType Type => DataType.CharVector;
 
-    public CharVector(char[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public CharVector(char[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new CharVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        for (var i = 0; i < Value.Length; i++)
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+
+        foreach (var value in Value)
         {
-            result[6 + i] = (byte)Value[i];
+            stream.WriteByte((byte)value);
         }
-        return result;
     }
 
     public override string ToString()

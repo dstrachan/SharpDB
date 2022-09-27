@@ -1,24 +1,33 @@
-﻿using System.Text;
-using static SharpDB.Data.DoubleAtom;
+﻿using System.Buffers.Binary;
+using System.Text;
 
 namespace SharpDB.Data;
 
-public class DoubleVector : BaseVector<double>
+public class DoubleVector : VectorBase<DoubleVector, double>
 {
+    public const double Null = double.NaN;
+    public const double NegativeInfinity = double.NegativeInfinity;
+    public const double PositiveInfinity = double.PositiveInfinity;
+
     public override DataType Type => DataType.DoubleVector;
 
-    public DoubleVector(double[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public DoubleVector(double[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new DoubleVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length * 8];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        Buffer.BlockCopy(Value, 0, result, 6, Value.Length * 8);
-        return result;
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+
+        Span<byte> buffer = stackalloc byte[sizeof(double)];
+        foreach (var value in Value)
+        {
+            BinaryPrimitives.WriteDoubleLittleEndian(buffer, value);
+            stream.Write(buffer);
+        }
     }
 
     public override string ToString()

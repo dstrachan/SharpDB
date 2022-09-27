@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.DoubleAtom;
+using static SharpDB.Data.DoubleVector;
 
 namespace SharpDB.Tests.Data;
 
@@ -55,5 +55,11 @@ public class DoubleVectorTests
         Assert.That(_empty.ToString(), Is.EqualTo("`double$()"));
         Assert.That(_single.ToString(), Is.EqualTo(",0f"));
         Assert.That(_many.ToString(), Is.EqualTo("0 0n -0w 0w"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
     }
 }

@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using SharpDB.Data.Extensions;
-using static SharpDB.Data.BaseIntAtom;
 
 namespace SharpDB.Data;
 
-public class MonthVector : BaseIntVector
+public class MonthVector : IntVectorBase<MonthVector>
 {
     public override DataType Type => DataType.MonthVector;
 
-    public MonthVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public MonthVector(int[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new MonthVector(x, y))
     {
     }
 

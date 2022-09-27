@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.BaseLongAtom;
+using static SharpDB.Data.LongVectorBase<SharpDB.Data.TimespanVector>;
 
 namespace SharpDB.Tests.Data;
 
@@ -78,5 +78,11 @@ public class TimespanVectorTests
         Assert.That(_manyNoNull.ToString(), Is.EqualTo("0D00:00:00.000000000 0D00:00:00.000000001 0D00:00:00.000000002 0D00:00:00.000000003"));
         Assert.That(_manyWithNull.ToString(), Is.EqualTo("0D00:00:00.000000000 0N -0W 0W"));
         Assert.That(_manyOnlyNull.ToString(), Is.EqualTo("0N -0W 0Wn"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_manyNoNull[..].Value, Is.EqualTo(_manyNoNull.Value));
     }
 }

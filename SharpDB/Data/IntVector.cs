@@ -1,13 +1,13 @@
 ﻿using System.Text;
-using static SharpDB.Data.BaseIntAtom;
 
 namespace SharpDB.Data;
 
-public class IntVector : BaseIntVector
+public class IntVector : IntVectorBase<IntVector>
 {
     public override DataType Type => DataType.IntVector;
 
-    public IntVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public IntVector(int[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new IntVector(x, y))
     {
     }
 

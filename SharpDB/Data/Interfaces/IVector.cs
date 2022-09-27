@@ -1,8 +1,12 @@
 ﻿namespace SharpDB.Data;
 
-public interface IVector<out T> : IDataType where T : notnull
+public interface IVector<out T>
 {
+    DataType Type { get; }
+
     T[] Value { get; }
 
     VectorAttribute Attribute { get; }
+
+    void Serialize(Stream stream);
 }

@@ -52,4 +52,10 @@ public class BooleanVectorTests
         Assert.That(_single.ToString(), Is.EqualTo(",0b"));
         Assert.That(_many.ToString(), Is.EqualTo("0110b"));
     }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
+    }
 }

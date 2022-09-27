@@ -1,13 +1,13 @@
 ﻿using System.Text;
-using static SharpDB.Data.BaseLongAtom;
 
 namespace SharpDB.Data;
 
-public class LongVector : BaseLongVector
+public class LongVector : LongVectorBase<LongVector>
 {
     public override DataType Type => DataType.LongVector;
 
-    public LongVector(long[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public LongVector(long[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new LongVector(x, y))
     {
     }
 

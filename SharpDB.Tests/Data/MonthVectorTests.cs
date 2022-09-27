@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.BaseIntAtom;
+using static SharpDB.Data.IntVectorBase<SharpDB.Data.MonthVector>;
 
 namespace SharpDB.Tests.Data;
 
@@ -78,5 +78,11 @@ public class MonthVectorTests
         Assert.That(_manyNoNull.ToString(), Is.EqualTo("2000.01 2000.02 2000.03 2000.04m"));
         Assert.That(_manyWithNull.ToString(), Is.EqualTo("2000.01 0N -0W 0Wm"));
         Assert.That(_manyOnlyNull.ToString(), Is.EqualTo("0N -0W 0Wm"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_manyNoNull[..].Value, Is.EqualTo(_manyNoNull.Value));
     }
 }

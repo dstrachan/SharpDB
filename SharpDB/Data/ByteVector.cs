@@ -2,22 +2,21 @@
 
 namespace SharpDB.Data;
 
-public class ByteVector : BaseVector<byte>
+public class ByteVector : VectorBase<ByteVector, byte>
 {
     public override DataType Type => DataType.ByteVector;
 
-    public ByteVector(byte[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public ByteVector(byte[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new ByteVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        Buffer.BlockCopy(Value, 0, result, 6, Value.Length);
-        return result;
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+        stream.Write(Value);
     }
 
     public override string ToString()

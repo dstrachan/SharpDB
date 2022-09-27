@@ -1,14 +1,14 @@
 ﻿using System.Text;
 using SharpDB.Data.Extensions;
-using static SharpDB.Data.BaseIntAtom;
 
 namespace SharpDB.Data;
 
-public class MinuteVector : BaseIntVector
+public class MinuteVector : IntVectorBase<MinuteVector>
 {
     public override DataType Type => DataType.MinuteVector;
 
-    public MinuteVector(int[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public MinuteVector(int[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new MinuteVector(x, y))
     {
     }
 

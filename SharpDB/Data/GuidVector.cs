@@ -1,27 +1,29 @@
-﻿using System.Text;
+﻿using System.Buffers.Binary;
+using System.Text;
 
 namespace SharpDB.Data;
 
-public class GuidVector : BaseVector<Guid>
+public class GuidVector : VectorBase<GuidVector, Guid>
 {
+    public static readonly Guid Null = Guid.Empty;
+    
     public override DataType Type => DataType.GuidVector;
 
-    public GuidVector(Guid[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public GuidVector(Guid[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new GuidVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length * 16];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        for (var i = 0; i < Value.Length; i++)
-        {
-            Buffer.BlockCopy(Value[i].ToByteArray(), 0, result, 6 + i * 16, 16);
-        }
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
 
-        return result;
+        foreach (var guid in Value)
+        {
+            stream.Write(guid.ToByteArray());
+        }
     }
 
     public override string ToString()

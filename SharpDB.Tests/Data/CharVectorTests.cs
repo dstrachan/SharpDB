@@ -52,4 +52,10 @@ public class CharVectorTests
         Assert.That(_single.ToString(), Is.EqualTo(",\"a\""));
         Assert.That(_many.ToString(), Is.EqualTo("\"abcd\""));
     }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
+    }
 }

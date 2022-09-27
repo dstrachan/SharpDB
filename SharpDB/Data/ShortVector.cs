@@ -1,24 +1,33 @@
-﻿using System.Text;
-using static SharpDB.Data.ShortAtom;
+﻿using System.Buffers.Binary;
+using System.Text;
 
 namespace SharpDB.Data;
 
-public class ShortVector : BaseVector<short>
+public class ShortVector : VectorBase<ShortVector, short>
 {
+    public const short Null = short.MinValue;
+    public const short NegativeInfinity = short.MinValue + 1;
+    public const short PositiveInfinity = short.MaxValue;
+
     public override DataType Type => DataType.ShortVector;
 
-    public ShortVector(short[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public ShortVector(short[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new ShortVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length * 2];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        Buffer.BlockCopy(Value, 0, result, 6, Value.Length * 2);
-        return result;
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+
+        Span<byte> buffer = stackalloc byte[sizeof(short)];
+        foreach (var value in Value)
+        {
+            BinaryPrimitives.WriteInt16LittleEndian(buffer, value);
+            stream.Write(buffer);
+        }
     }
 
     public override string ToString()

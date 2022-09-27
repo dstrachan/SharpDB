@@ -2,34 +2,25 @@
 
 namespace SharpDB.Data;
 
-public class SymbolVector : BaseVector<string>
+public class SymbolVector : VectorBase<SymbolVector, string>
 {
     public override DataType Type => DataType.SymbolVector;
 
-    public SymbolVector(string[] value, VectorAttribute attribute = VectorAttribute.None) : base(value, attribute)
+    public SymbolVector(string[] value, VectorAttribute attribute = VectorAttribute.None)
+        : base(value, attribute, (x, y) => new SymbolVector(x, y))
     {
     }
 
-    public override byte[] Serialize()
+    public override void Serialize(Stream stream)
     {
-        var result = new byte[6 + Value.Length];
-        result[0] = (byte)Type;
-        result[1] = (byte)Attribute;
-        Buffer.BlockCopy(BitConverter.GetBytes(Value.Length), 0, result, 2, 4);
-        var offset = 6;
-        foreach (var symbol in Value)
+        stream.WriteByte((byte)Type);
+        stream.WriteByte((byte)VectorAttribute.None);
+        stream.Write(BitConverter.GetBytes(Value.Length));
+
+        foreach (var value in Value)
         {
-            var symbolBytes = Encoding.UTF8.GetBytes($"{symbol}{char.MinValue}");
-            if (result.Length < offset + symbolBytes.Length)
-            {
-                Array.Resize(ref result, offset + symbolBytes.Length);
-            }
-
-            Buffer.BlockCopy(symbolBytes, 0, result, offset, symbolBytes.Length);
-            offset += symbolBytes.Length;
+            stream.Write(Encoding.UTF8.GetBytes($"{value}{char.MinValue}"));
         }
-
-        return result;
     }
 
     public override string ToString()

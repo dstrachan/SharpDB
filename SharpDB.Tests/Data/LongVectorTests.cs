@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.BaseLongAtom;
+using static SharpDB.Data.LongVectorBase<SharpDB.Data.LongVector>;
 
 namespace SharpDB.Tests.Data;
 
@@ -55,5 +55,11 @@ public class LongVectorTests
         Assert.That(_empty.ToString(), Is.EqualTo("`long$()"));
         Assert.That(_single.ToString(), Is.EqualTo(",0"));
         Assert.That(_many.ToString(), Is.EqualTo("0 0N -0W 0W"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
     }
 }

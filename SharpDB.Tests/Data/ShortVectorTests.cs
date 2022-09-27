@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.ShortAtom;
+using static SharpDB.Data.ShortVector;
 
 namespace SharpDB.Tests.Data;
 
@@ -55,5 +55,11 @@ public class ShortVectorTests
         Assert.That(_empty.ToString(), Is.EqualTo("`short$()"));
         Assert.That(_single.ToString(), Is.EqualTo(",0h"));
         Assert.That(_many.ToString(), Is.EqualTo("0 0N -0W 0Wh"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_many[..].Value, Is.EqualTo(_many.Value));
     }
 }

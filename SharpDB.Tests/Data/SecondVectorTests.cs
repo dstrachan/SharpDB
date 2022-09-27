@@ -1,5 +1,5 @@
 ﻿using SharpDB.Data;
-using static SharpDB.Data.BaseIntAtom;
+using static SharpDB.Data.IntVectorBase<SharpDB.Data.SecondVector>;
 
 namespace SharpDB.Tests.Data;
 
@@ -78,5 +78,11 @@ public class SecondVectorTests
         Assert.That(_manyNoNull.ToString(), Is.EqualTo("00:00:00 00:00:01 00:00:02 00:00:03"));
         Assert.That(_manyWithNull.ToString(), Is.EqualTo("00:00:00 0N -0W 0W"));
         Assert.That(_manyOnlyNull.ToString(), Is.EqualTo("0N -0W 0Wv"));
+    }
+
+    [Test]
+    public void FactoryIsCalled()
+    {
+        Assert.That(_manyNoNull[..].Value, Is.EqualTo(_manyNoNull.Value));
     }
 }
